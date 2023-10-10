@@ -51,7 +51,7 @@ body {
 }
 
 .addButton:hover {
-    background: #110944;
+    background: #2a46c4;
     cursor: pointer;
     color: white;
     border: none;
@@ -132,4 +132,11 @@ body {
     background: #3b3b0c;
     cursor: pointer;
     color: white;
+}
+.addButton:active{
+    background: #3dc0fd;
+    cursor: pointer;
+    color: rgb(19, 5, 5);
+    border: none;
+    border-radius: 5px;
 }
