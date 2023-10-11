@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OctoHub</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
-    <p class="title">Tasker</p>
-    <main id="main">
-        <div class="todoContainer">
+    <div class="app-container">
+        <h1 class="title">Tasker</h1>
+        <div class="todo-container">
             <input placeholder="Enter your task here.." type="text" name="userInput" id="userInputBox">
-            <button class="addButton" id="insertButton" type="button">ADD</button>
+            <button class="add-button" id="insertButton" type="button">ADD</button>
         </div>
-        <div class="lists">
-
-        </div>
-
-        <div class="lists">
-
-        </div>
-        </div>
-    </main>
+        <div class="lists" id="lists"></div>
+    </div>
     <script src="./app.js"></script>
 </body>
-
 </html>

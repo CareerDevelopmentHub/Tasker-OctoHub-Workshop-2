@@ -1,132 +1,90 @@
-const textBox = document.getElementById("userInputBox");
-const addButton = document.getElementById("insertButton");
+const userInputBox = document.getElementById("userInputBox");
+const insertButton = document.getElementById("insertButton");
+const listsDiv = document.getElementById("lists");
 
-// * Add event listener to the button
+// Initialize todos from local storage
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-addButton.addEventListener("click", () => {
-  if (!textBox.value) return;
-  const currentTime = new Date().toLocaleString();
-  user_input = textBox.value;
-  textBox.value = "";
-  addListItem(user_input, currentTime);
-  saveLocalTodos({ task: user_input, time: currentTime });
-  getTodos();
-});
+// Function to add a task
+function addTask(taskText, timeText) {
+    const listItem = document.createElement("div");
+    listItem.className = "list";
 
-const deleteTodo = (e) => {
-  const item = e.target;
-  if (item.classList[0] === "deleteButton") {
-    const todo = item.parentElement;
-    todo.remove();
-    const todos = JSON.parse(localStorage.getItem("todos"));
-    const newTodos = todos.filter(
-      (todo) => todo.task !== item.parentElement.querySelector("p").textContent
-    );
-    localStorage.setItem("todos", JSON.stringify(newTodos));
-    getTodos();
-  }
-};
+    const taskDiv = document.createElement("div");
+    listItem.appendChild(taskDiv);
 
-const editTodo = (e) => {
-  const item = e.target;
-  if (item.classList[0] === "editButton") {
-    const todo = item.parentElement;
-    const task = todo.querySelector("p");
-    const taskText = task.textContent;
-    textBox.value = taskText;
-    todo.remove();
-    const todos = JSON.parse(localStorage.getItem("todos"));
-    const newTodos = todos.filter((todo) => todo.task !== taskText);
-    localStorage.setItem("todos", JSON.stringify(newTodos));
-    getTodos();
-  }
-};
+    const taskPara = document.createElement("p");
+    taskPara.textContent = taskText;
+    taskDiv.appendChild(taskPara);
 
-document.addEventListener("click", deleteTodo);
-document.addEventListener("click", editTodo);
+    const timeElement = document.createElement("i");
+    timeElement.textContent = timeText;
+    taskDiv.appendChild(timeElement);
 
-// * Value holders
+    const deleteButton = createButton("Delete", "delete-button");
+    deleteButton.addEventListener("click", () => deleteTask(taskText));
+    listItem.appendChild(deleteButton);
 
-let user_input = "";
+    const editButton = createButton("Edit", "edit-button");
+    editButton.addEventListener("click", () => editTask(taskText));
+    listItem.appendChild(editButton);
 
-// * Function to add the user input to the list
-
-function addListItem(taskText, timeText) {
-  // Create new list item
-  let listItem = document.createElement("div");
-  listItem.className = "list";
-
-  // Create task div
-  let taskDiv = document.createElement("div");
-  listItem.appendChild(taskDiv);
-
-  // Create task paragraph
-  let taskPara = document.createElement("p");
-  taskPara.textContent = taskText;
-  taskDiv.appendChild(taskPara);
-
-  // Create time element
-  let timeElement = document.createElement("i");
-  timeElement.textContent = timeText;
-  taskDiv.appendChild(timeElement);
-
-  // Create delete button
-  let deleteButton = document.createElement("button");
-  deleteButton.className = "deleteButton";
-  deleteButton.textContent = "Delete";
-  listItem.appendChild(deleteButton);
-
-  // Create edit button
-  let editButton = document.createElement("button");
-  editButton.className = "editButton";
-  editButton.textContent = "Edit";
-  listItem.appendChild(editButton);
-
-  // Append new list item to the lists div
-  let listsDiv = document.querySelector(".lists");
-  listsDiv.appendChild(listItem);
+    listsDiv.appendChild(listItem);
 }
 
-const saveLocalTodos = (todo) => {
-  // Check if there is already a todo list
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    // If there is already a todo list, get it
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
+// Function to create a button
+function createButton(text, className) {
+    const button = document.createElement("button");
+    button.textContent = text;
+    button.className = className;
+    return button;
+}
 
-  // Add the new todo to the list
-  todos.push(todo);
-  localStorage.setItem("todos", JSON.stringify(todos));
-};
+// Function to delete a task
+function deleteTask(taskText) {
+    todos = todos.filter((todo) => todo.task !== taskText);
+    updateLocalStorage();
+    updateTasks();
+}
 
-const getTodos = () => {
-  // clear the list
+// Function to edit a task
+function editTask(taskText) {
+    const task = todos.find((todo) => todo.task === taskText);
+    if (task) {
+        userInputBox.value = task.task;
+        deleteTask(taskText);
+    }
+}
 
-  let listsDiv = document.querySelector(".lists");
-  listsDiv.innerHTML = "";
-  // Check if there is already a todo list
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    // If there is already a todo list, get it
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
+// Function to update local storage
+function updateLocalStorage() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
 
-  todos.forEach((todo) => {
-    addListItem(todo?.task, todo?.time);
-  });
-};
+// Function to update tasks displayed on the page
+function updateTasks() {
+    listsDiv.innerHTML = "";
+    todos.forEach((todo) => addTask(todo.task, todo.time));
+}
 
-// on enter press
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    addButton.click();
-  }
+// Event listener for adding a new task
+insertButton.addEventListener("click", () => {
+    const taskText = userInputBox.value.trim();
+    if (taskText) {
+        const currentTime = new Date().toLocaleString();
+        todos.push({ task: taskText, time: currentTime });
+        updateLocalStorage();
+        updateTasks();
+        userInputBox.value = "";
+    }
 });
 
-document.addEventListener("DOMContentLoaded", getTodos);
+// Event listener for Enter key press
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        insertButton.click();
+    }
+});
+
+// Initial display of tasks from local storage
+updateTasks();
