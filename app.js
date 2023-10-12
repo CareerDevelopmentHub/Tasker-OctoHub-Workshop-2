@@ -5,7 +5,7 @@ const addButton = document.getElementById("insertButton");
 
 addButton.addEventListener("click", () => {
   if (!textBox.value){
-   alert("Add your task here");
+   alert("Add your task first");
    return;
   } 
   const currentTime = new Date().toLocaleString();
