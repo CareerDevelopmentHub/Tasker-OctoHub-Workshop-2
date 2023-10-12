@@ -3,5 +3,6 @@
         "Octo",
         "Tasker",
         "Todos"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
