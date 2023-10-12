@@ -4,7 +4,10 @@ const addButton = document.getElementById("insertButton");
 // * Add event listener to the button
 
 addButton.addEventListener("click", () => {
-  if (!textBox.value) return;
+  if (!textBox.value){
+    alert("Add your task first!");
+    return;
+  }
   const currentTime = new Date().toLocaleString();
   user_input = textBox.value;
   textBox.value = "";
