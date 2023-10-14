@@ -1,167 +1,170 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Inter:wght@300;400;500;600;700&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-}
-:root{
-    --dark: #374151;
-    --darker: #1f2937;
-    --darkest: #111827;
-    --gray: #6b7280;
-    --pink: #ec4899;
-    --purple: #8b5cf6;
-    --cyan: #00ffff;
-}
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
 
 body {
-    background: var(--dark);
-}
-
-.title {
-    color: rgba(243, 243, 243, 0.527);
-    font-size: 5rem;
-    background: transparent;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 30px auto 150px auto;
-    text-align: center;
-    display: table;
-}
-
-#main {
-    width: 100%;
-    min-height: 100vh;
-}
-
-.title:hover {
-    background: #000;
-}
-
-
-
-#userInputBox {
-    padding: 15px;
-    border: none;
-    outline-style: none;
-    width: 100%;
-    background-color: var(--darker);
-    font-family: 'Fira Sans';
-    font-weight: 600;
-    font-size: 1.25rem;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    color: var(--gray);
-}
-
-.addButton {
-    margin-left: 10px;
-    padding: 15px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 1.2rem;
-    background: linear-gradient(to right,var(--pink),var(--purple));
-    border-radius: 1rem;
-    color: white;
-    border: none;
-}
-
-.addButton:hover,
-.addbutton:focus,
-.addbutton:active {
-    cursor: pointer;
-    border-radius: 1rem;
-    background: linear-gradient(to right,var(--cyan),var(--pink));
-    color: white;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(249, 104, 203, 0.5);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-}
-
-
-.todoContainer {
-    width: 40%;
-    margin: 0 auto;
-    display: flex;
-    margin-top: 30px;
-    align-items: center;
-    gap: 6px;
-}
-
-.lists {
-    text-align: center;
-    margin-top: 60px;
-}
-
-.lists div p {
-    color: white;
-}
-
-.list {
+    background-color: #a39bd2;
+    min-height: 70vh;
+    padding: 1rem;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
-    gap: 5px;
-    padding: 10px;
+    align-items: center;
+    color: hsl(198, 1%, 29%);
+    font-family: 'Gochi Hand', cursive;
+    text-align: center;
+    font-size: 130%;
 }
 
-.list div {
+@media only screen and (min-width: 500px) {
+    body {
+        min-height: 100vh;
+    }
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    max-width: 500px;
+    min-width: 250px;
+    background: #f1f5f8;
+    background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+    background-size: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 4px 3px 7px 2px #00000040;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.heading {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-.list div p {
-    background-color: var(--darker);
+.heading__title {
+    transform: rotate(2deg);
+    padding: 0.2rem 1.2rem;
+    border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+    background-color: hsla(166, 100%, 50%, 0.7);
+    font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 500px) {
+    .heading__title {
+        font-size: 2rem;
+    }
+}
+
+.heading__img {
+    width: 24%;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form__input {
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-bottom-right-radius: 15px 3px;
+    border-bottom-left-radius: 3px 15px;
+    border: solid 3px transparent;
+    border-bottom: dashed 3px #ea95e0;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    color: hsla(260, 2%, 25%, 0.7);
+    width: 70%;
+    margin-bottom: 20px;
+
+    &:focus {
+        outline: none;
+        border: solid 3px #ea95e0;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .form__input {
+        width: 60%;
+    }
+}
+
+.button {
     padding: 10px;
-    border-radius: 1rem;
-    font-size: 1.15rem;
+    border: none;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    background-color: hsla(166, 100%, 50%, 0.958);
 }
 
-.list div i {
-    font-weight: normal;
-    color: white;
-    font-size: x-small;
+.button span {
+    background: #f1f5f8;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid hsl(198, 1%, 29%);
+}
+
+.button:active,
+.button:focus {
+    transform: translateY(4px);
+    padding-bottom: 0px;
+    outline: 0;
+}
+
+.toDoList {
     text-align: left;
-    margin: 4px;
-}
 
-.list button {
-    width: 70px;
-    height: 40px;
+    li {
+        position: relative;
+        padding: 0.5rem;
+    }
+
+    li:hover {
+        text-decoration: line-through wavy #24bffb;
+    }
 }
 
 .deleteButton {
-    background: red;
+    padding: 2px;
     border: none;
-    border-radius: 1rem;
-    color: white;
-    font-size: 1.15rem;
-    
-}
-
-.deleteButton:hover {
-    background: #370c24;
-    box-shadow: 0 0 20px rgba(250, 8, 52, 0.947);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    background-color: hsla(166, 100%, 50%, 0.958);
 }
 
 .editButton {
-    background: yellow;
+    padding: 2px;
     border: none;
-    border-radius: 1rem;
-    font-size: 1.15rem;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 }
 
-.editButton:hover {
-    background: #3b3b0c;
-    box-shadow: 0 0 20px rgba(246, 218, 6, 0.976);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    cursor: pointer;
-    color: white;
+.list p {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
