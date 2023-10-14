@@ -6,18 +6,27 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+:root{
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --gray: #6b7280;
+    --pink: #ec4899;
+    --purple: #8b5cf6;
+    --cyan: #00ffff;
+}
 
 body {
-    background: #080926;
+    background: var(--dark);
 }
 
 .title {
-    color: white;
-    font-size: 30px;
-    background: #000;
+    color: rgba(243, 243, 243, 0.527);
+    font-size: 5rem;
+    background: transparent;
     padding: 10px;
     border-radius: 5px;
-    margin: 30px auto 250px auto;
+    margin: 30px auto 150px auto;
     text-align: center;
     display: table;
 }
@@ -34,44 +43,58 @@ body {
 
 
 #userInputBox {
-    padding: 10px;
+    padding: 15px;
+    border: none;
     outline-style: none;
     width: 100%;
+    background-color: var(--darker);
     font-family: 'Fira Sans';
     font-weight: 600;
-    font-size: large;
-    border-radius: 5px;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--gray);
 }
 
 .addButton {
     margin-left: 10px;
-    padding: 12px;
+    padding: 15px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
+    font-size: 1.2rem;
+    background: linear-gradient(to right,var(--pink),var(--purple));
+    border-radius: 1rem;
+    color: white;
+    border: none;
 }
 
-.addButton:hover {
-    background: #2a46c4;
+.addButton:hover,
+.addbutton:focus,
+.addbutton:active {
     cursor: pointer;
+    border-radius: 1rem;
+    background: linear-gradient(to right,var(--cyan),var(--pink));
     color: white;
     border: none;
     border-radius: 5px;
+    box-shadow: 0 0 20px rgba(249, 104, 203, 0.5);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
 }
-
 
 
 .todoContainer {
     width: 40%;
     margin: 0 auto;
     display: flex;
-    margin-top: 50px;
+    margin-top: 30px;
     align-items: center;
     gap: 6px;
 }
 
 .lists {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .lists div p {
@@ -88,13 +111,13 @@ body {
 .list div {
     display: flex;
     flex-direction: column;
-
 }
 
 .list div p {
-    background-color: green;
+    background-color: var(--darker);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 1rem;
+    font-size: 1.15rem;
 }
 
 .list div i {
@@ -113,30 +136,32 @@ body {
 .deleteButton {
     background: red;
     border: none;
+    border-radius: 1rem;
     color: white;
-    border-radius: 5px;
+    font-size: 1.15rem;
+    
 }
 
 .deleteButton:hover {
     background: #370c24;
+    box-shadow: 0 0 20px rgba(250, 8, 52, 0.947);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     cursor: pointer;
 }
 
 .editButton {
     background: yellow;
     border: none;
-    border-radius: 5px;
+    border-radius: 1rem;
+    font-size: 1.15rem;
 }
 
 .editButton:hover {
     background: #3b3b0c;
+    box-shadow: 0 0 20px rgba(246, 218, 6, 0.976);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     cursor: pointer;
     color: white;
-}
-.addButton:active{
-    background: #3dc0fd;
-    cursor: pointer;
-    color: rgb(19, 5, 5);
-    border: none;
-    border-radius: 5px;
 }
