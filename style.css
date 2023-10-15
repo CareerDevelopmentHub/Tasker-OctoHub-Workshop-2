@@ -20,6 +20,7 @@ body {
     margin: 30px auto 250px auto;
     text-align: center;
     display: table;
+    transition: all 0.5s;
 }
 
 #main {
@@ -28,7 +29,11 @@ body {
 }
 
 .title:hover {
-    background: #000;
+    border-color: rgb(206, 253, 135);
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform: translateY(-0.4em);
+    cursor: pointer;
 }
 
 
