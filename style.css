@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Inter:wght@300;400;500;600;700&display=swap");
 
 * {
@@ -138,3 +139,175 @@ body {
     cursor: pointer;
     color: white;
 }
+=======
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+
+body {
+    background-color: #a39bd2;
+    min-height: 70vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(198, 1%, 29%);
+    font-family: 'Gochi Hand', cursive;
+    text-align: center;
+    font-size: 130%;
+}
+
+@media only screen and (min-width: 500px) {
+    body {
+        min-height: 100vh;
+    }
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    max-width: 500px;
+    min-width: 250px;
+    background: #f1f5f8;
+    background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+    background-size: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 4px 3px 7px 2px #00000040;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.heading__title {
+    transform: rotate(2deg);
+    padding: 0.2rem 1.2rem;
+    border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+    background-color: hsla(166, 100%, 50%, 0.7);
+    font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 500px) {
+    .heading__title {
+        font-size: 2rem;
+    }
+}
+
+.heading__img {
+    width: 24%;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form__input {
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-bottom-right-radius: 15px 3px;
+    border-bottom-left-radius: 3px 15px;
+    border: solid 3px transparent;
+    border-bottom: dashed 3px #ea95e0;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.5rem;
+    color: hsla(260, 2%, 25%, 0.7);
+    width: 70%;
+    margin-bottom: 20px;
+
+    &:focus {
+        outline: none;
+        border: solid 3px #ea95e0;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .form__input {
+        width: 60%;
+    }
+}
+
+.button {
+    padding: 10px;
+    border: none;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 7px;
+    border-radius: 10px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    background-color: hsla(166, 100%, 50%, 0.958);
+}
+
+.button span {
+    background: #f1f5f8;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid hsl(198, 1%, 29%);
+}
+
+.button:active,
+.button:focus {
+    transform: translateY(4px);
+    padding-bottom: 0px;
+    outline: 0;
+}
+
+.toDoList {
+    text-align: left;
+
+    li {
+        position: relative;
+        padding: 0.5rem;
+    }
+
+    li:hover {
+        text-decoration: line-through wavy #24bffb;
+    }
+}
+
+.deleteButton {
+    padding: 2px;
+    border: none;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    background-color: hsla(166, 100%, 50%, 0.958);
+}
+
+.editButton {
+    padding: 2px;
+    border: none;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.list p {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
