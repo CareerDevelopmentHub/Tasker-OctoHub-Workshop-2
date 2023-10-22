@@ -16,9 +16,18 @@
     <link rel="stylesheet" href="./sheryCss.css" />
    
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <button class="dark-button" onclick="darkfuncation()"><i class="fa-solid fa-lightbulb fa-lg" style="color: #ff1100;"></i></button> 
+   <!-- java script --> 
+   <script> 
+     function darkfuncation(){ 
+       let element=document.body; 
+       element.classList.toggle("dark-mode"); 
+    }
+   </script>
     <section class="container magnet-target">
         <div class="heading">
             <img class="heading__img magnet-target " src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
