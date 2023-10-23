@@ -42,8 +42,33 @@ const editTodo = (e) => {
   }
 };
 
+const completeTodo = (e) => {
+  const item = e.target;
+  if (item.classList[0] === "completeButton") {
+    const todo = item.parentElement;
+    const taskPara = todo.querySelector("p");
+
+    taskPara.style.color = "green";
+    taskPara.classList.add("completed");
+  }
+}
+
+const skipTodo = (e) => {
+  const item = e.target;
+  if (item.classList[0] === "skipButton") {
+    const todo = item.parentElement;
+    const taskPara = todo.querySelector("p");
+
+    if (!taskPara.classList.contains("completed")) {
+      taskPara.style.textDecoration = "line-through";
+    }
+  }
+}
+
 document.addEventListener("click", deleteTodo);
 document.addEventListener("click", editTodo);
+document.addEventListener("click", completeTodo);
+document.addEventListener("click", skipTodo);
 
 // * Value holders
 
@@ -81,6 +106,18 @@ function addListItem(taskText, timeText) {
   editButton.className = "editButton";
   editButton.textContent = "Edit";
   listItem.appendChild(editButton);
+  
+  // Create complete button
+  let completeButton = document.createElement("button");
+  completeButton.className = "completeButton";
+  completeButton.textContent = "Complete";
+  listItem.appendChild(completeButton);
+
+  // Create skip button
+  let skipButton = document.createElement("button");
+  skipButton.className = "skipButton";
+  skipButton.textContent = "Skip";
+  listItem.appendChild(skipButton);
 
   // Append new list item to the lists div
   let listsDiv = document.querySelector(".lists");
