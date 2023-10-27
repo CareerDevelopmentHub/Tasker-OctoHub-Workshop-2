@@ -164,6 +164,38 @@ body {
     cursor: pointer;
 }
 
+.skipButton {
+    padding: 2px;
+    border: none;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.completeButton {
+    padding: 2px;
+    border: none;
+    transform: rotate(4deg);
+    transform-origin: center;
+    font-family: 'Gochi Hand', cursive;
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    box-shadow: 0 4px 0 hsl(198, 1%, 29%);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
 .list p {
     font-size: 2rem;
     margin-bottom: 10px;
